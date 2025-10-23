@@ -30,15 +30,6 @@ output "node_resource_group_id" {
   value       = module.aks_with_node_group.node_resource_group_id
 }
 
-output "az_rg_id" {
-  description = "The ID of the resource group"
-  value       = module.vnet_with_subnets.az_rg_id
-}
-
-output "az_rg_name" {
-  description = "The name of the resource group"
-  value       = module.vnet_with_subnets.az_rg_name
-}
 
 output "az_vnet_id" {
   description = "The ID of the vnet"
