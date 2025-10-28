@@ -7,16 +7,11 @@ variables:
 
 
 steps:
-- task: TerraformInstaller@1
+- task: AzureCLI@2
+  displayName: 'Terraform Init and Plan'
   inputs:
-    terraformVersion: 'latest' # Or specify a specific version like '1.5.7'
-
-# - task: AzureCLI@2
-#   displayName: 'Deploy Azure Service'
-#   inputs:
-#     azureSubscription: '$(azureSubscription)'
-#     scriptType: 'bash'
-#     scriptLocation: 'inlineScript'
-#     inlineScript: |
-#       terraform version
-
+    azureSubscription: '$(azureSubscription)'
+    scriptType: 'bash'
+    scriptLocation: 'inlineScript'
+    inlineScript: |
+      terraform version
