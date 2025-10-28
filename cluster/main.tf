@@ -34,9 +34,9 @@ module "monitoring" {
   # invoke aks module under modules directory
   source = "../modules/monitoring"
 
-  host = module.aks_with_node_group.kube_config[0].host
-  client_certificate=module.aks_with_node_group.kube_config[0].client_certificate
-  client_key=module.aks_with_node_group.kube_config[0].client_key
-  cluster_ca_certificate=module.aks_with_node_group.kube_config[0].cluster_ca_certificate
+  host = module.aks_with_node_group.kube_config.0.host
+  client_certificate=module.aks_with_node_group.kube_config.0.client_certificate
+  client_key=module.aks_with_node_group.kube_config.0.client_key
+  cluster_ca_certificate=module.aks_with_node_group.kube_config.0.cluster_ca_certificate
 
 }
