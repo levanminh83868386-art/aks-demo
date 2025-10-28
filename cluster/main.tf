@@ -28,3 +28,9 @@ module "aks_with_node_group" {
   az_subnet_id        = module.vnet_with_subnets.az_subnet_id
   nodepools           = var.nodepools
 }
+
+# invoking aks module to create aks cluster and node group
+module "monitoring" {
+  # invoke aks module under modules directory
+  source = "../modules/monitoring"
+}
