@@ -7,14 +7,9 @@ variables:
 
 
 steps:
-- task: AzurePowerShell@5
+- task: TerraformInstaller@1
   inputs:
-    azureSubscription: 'Visual Studio Enterprise – MPN(37b25916-1e2d-4883-bb99-00f8f55f2a88)'
-    ScriptType: 'InlineScript'
-    Inline: |
-      # You can write your azure powershell scripts inline here. 
-      # You can also pass predefined and custom variables to this script using arguments
-      terraform version
+    terraformVersion: 'latest' # Or specify a specific version like '1.5.7'
 
 # - task: AzureCLI@2
 #   displayName: 'Deploy Azure Service'
