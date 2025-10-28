@@ -8,20 +8,7 @@ resource "helm_release" "kube_prometheus_stack" {
   namespace  = "monitoring"
   create_namespace = true
   
-  set {
-    name  = "grafana.enabled"
-    value = "true"
-  }
 
-  set {
-    name  = "grafana.adminPassword"
-    value = "admin123"
-  }
-
-  set {
-    name  = "prometheus.prometheusSpec.serviceMonitorSelectorNilUsesHelmValues"
-    value = "false"
-  }
   # Optional: Wait for all resources to be ready (can take a few minutes)
   timeout = 600
   wait    = true
