@@ -12,7 +12,6 @@ output "client_certificate" {
 output "kube_config" {
   description = "Raw Kubernetes config to be used by kubectl and other compatible tools."
   value       = azurerm_kubernetes_cluster.k8s.kube_config_raw
-  sensitive   = true
 }
 
 output "oidc_issuer_url" {
