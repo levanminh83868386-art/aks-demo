@@ -72,13 +72,6 @@ resource "azurerm_container_registry" "minhtestacr" {
   sku                 = "Standard"
 }
 
-# resource "azurerm_role_assignment" "minh_aks_acr_pull" {
-#   principal_id                     = "9e5f1414-9e67-4501-9725-7004b067ef7b"
-#   role_definition_name             = "AcrPull"
-#   scope                            = "/subscriptions/37b25916-1e2d-4883-bb99-00f8f55f2a88/resourceGroups/myTFResourceGroup/providers/Microsoft.ContainerRegistry/registries/minhtestacr"
-#   skip_service_principal_aad_check = true
-# }
-
 resource "azurerm_role_assignment" "minh_aks_acr_pull" {
   principal_id                     = azurerm_kubernetes_cluster.k8s.kubelet_identity[0].object_id
   role_definition_name             = "AcrPull"
