@@ -8,7 +8,7 @@ resource "helm_release" "kube_prometheus_stack" {
   namespace  = "monitoring"
   create_namespace = true
   
-   set {
+  set {
     name  = "grafana.enabled"
     value = "true"
   }
