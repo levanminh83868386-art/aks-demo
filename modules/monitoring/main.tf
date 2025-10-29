@@ -9,7 +9,9 @@ resource "helm_release" "kube_prometheus_stack" {
   create_namespace = true
   
   values = [
-    file("${path.module}/values.yaml") # Example of loading values from a file
+    templatefile("${path.module}/values.yaml", {
+      ip = var.ingress_controller_ip
+    })
   ]
 
   # Optional: Wait for all resources to be ready (can take a few minutes)
