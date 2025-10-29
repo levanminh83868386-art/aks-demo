@@ -1,14 +1,14 @@
-# resource "helm_release" "nginx_ingress" {
-#   name       = "nginx-ingress"
-#   repository = "https://kubernetes.github.io/ingress-nginx"
-#   chart      = "ingress-nginx"
-#   namespace  = "ingress-nginx"
-#   create_namespace = true
+resource "helm_release" "nginx_ingress" {
+  name       = "nginx-ingress"
+  repository = "https://kubernetes.github.io/ingress-nginx"
+  chart      = "ingress-nginx"
+  namespace  = "ingress-nginx"
+  create_namespace = true
 
-#   values = [
-#     file("${path.module}/values.yaml")
-#   ]
-# }
+  values = [
+    file("${path.module}/values.yaml")
+  ]
+}
 
 
 # resource "null_resource" "wait_for_ingress_ip" {
@@ -34,11 +34,11 @@
 # }
 
 
-# data "kubernetes_service" "nginx_ingress" {
-#   metadata {
-#     name      = "nginx-ingress-ingress-nginx-controller"
-#     namespace = "ingress-nginx"
-#   }
+data "kubernetes_service" "nginx_ingress" {
+  metadata {
+    name      = "nginx-ingress-ingress-nginx-controller"
+    namespace = "ingress-nginx"
+  }
 
-#   depends_on = [helm_release.nginx_ingress]
-# }
+  depends_on = [helm_release.nginx_ingress]
+}
