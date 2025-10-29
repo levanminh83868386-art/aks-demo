@@ -3,7 +3,7 @@ resource "helm_release" "nginx_ingress" {
   repository = "https://kubernetes.github.io/ingress-nginx"
   chart      = "ingress-nginx"
   namespace  = "ingress-nginx"
-  version    = "1.7.1" # Use a stable, recent version
+  version    = "1.12.0" # Use a stable, recent version
   create_namespace = true
 
 
