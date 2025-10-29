@@ -10,7 +10,7 @@ resource "helm_release" "kube_prometheus_stack" {
   
   values = [
     templatefile("${path.module}/values.yaml", {
-      ip = var.ingress_controller_ip
+      ip = "123.123.123.123"
     })
   ]
 
