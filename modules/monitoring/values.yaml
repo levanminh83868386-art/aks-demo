@@ -3,7 +3,28 @@ prometheus:
     podMonitorSelectorNilUsesHelmValues: false
     serviceMonitorSelectorNilUsesHelmValues: false
     ruleSelectorNilUsesHelmValues: false
+  
+  ingress:
+    enabled: true
+    annotations:
+      kubernetes.io/ingress.class: nginx
+    hosts:
+      - prometheus.128.251.108.67.nip.io
+    paths:
+      - /
+    pathType: Prefix
+
 
 grafana:
   adminUser: admin
   adminPassword: admin
+  
+  ingress:
+    enabled: true
+    annotations:
+      kubernetes.io/ingress.class: nginx
+    hosts:
+      - grafana.128.251.108.67.nip.io
+    paths:
+      - /
+    pathType: Prefix
