@@ -48,6 +48,6 @@ module "monitoring" {
   client_certificate=module.aks_with_node_group.client_certificate
   client_key=module.aks_with_node_group.client_key
   cluster_ca_certificate=module.aks_with_node_group.cluster_ca_certificate
-  # ingress_controller_ip = module.ingress.ingress_controller_ip
+  ingress_controller_ip = module.ingress.ingress_controller_ip
 
 }
