@@ -17,3 +17,8 @@ variable "cluster_ca_certificate" {
   type        = string
   description = "aks cluster cluster ca certificate"
 }
+
+variable "ingress_controller_ip" {
+  type        = string
+  description = "Public IP of the NGINX Ingress Controller"
+}
