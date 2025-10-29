@@ -29,25 +29,25 @@ module "aks_with_node_group" {
   nodepools           = var.nodepools
 }
 
-module "ingress" {
-  # invoke aks module under modules directory
-  source = "../modules/ingress"
+# module "ingress" {
+#   # invoke aks module under modules directory
+#   source = "../modules/ingress"
 
-  host = module.aks_with_node_group.host
-  client_certificate=module.aks_with_node_group.client_certificate
-  client_key=module.aks_with_node_group.client_key
-  cluster_ca_certificate=module.aks_with_node_group.cluster_ca_certificate
+#   host = module.aks_with_node_group.host
+#   client_certificate=module.aks_with_node_group.client_certificate
+#   client_key=module.aks_with_node_group.client_key
+#   cluster_ca_certificate=module.aks_with_node_group.cluster_ca_certificate
 
-}
+# }
 
-module "monitoring" {
-  # invoke aks module under modules directory
-  source = "../modules/monitoring"
+# module "monitoring" {
+#   # invoke aks module under modules directory
+#   source = "../modules/monitoring"
 
-  host = module.aks_with_node_group.host
-  client_certificate=module.aks_with_node_group.client_certificate
-  client_key=module.aks_with_node_group.client_key
-  cluster_ca_certificate=module.aks_with_node_group.cluster_ca_certificate
-  ingress_controller_ip = module.ingress.ingress_controller_ip
+#   host = module.aks_with_node_group.host
+#   client_certificate=module.aks_with_node_group.client_certificate
+#   client_key=module.aks_with_node_group.client_key
+#   cluster_ca_certificate=module.aks_with_node_group.cluster_ca_certificate
+#   ingress_controller_ip = module.ingress.ingress_controller_ip
 
-}
+# }
