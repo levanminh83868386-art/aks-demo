@@ -2,6 +2,9 @@
 # Apply the ingress-nginx manifest using kubectl
 resource "null_resource" "apply_ingress_nginx" {
   provisioner "local-exec" {
+    command = "az aks get-credentials --resource-group myTFResourceGroup --name minh-test-aks --overwrite-existing"
+  }
+  provisioner "local-exec" {
     command = "kubectl apply -f https://raw.githubusercontent.com/kubernetes/ingress-nginx/controller-v1.7.1/deploy/static/provider/cloud/deploy.yaml"
   }
 }
