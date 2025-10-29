@@ -8,6 +8,9 @@ resource "helm_release" "kube_prometheus_stack" {
   namespace  = "monitoring"
   create_namespace = true
   
+  values = [
+    file("${path.module}/values.yaml") # Example of loading values from a file
+  ]
 
   # Optional: Wait for all resources to be ready (can take a few minutes)
   timeout = 600
