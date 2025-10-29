@@ -7,6 +7,6 @@
 
 
 output "ingress_controller_ip" {
-  value = data.kubernetes_service.nginx_ingress.status[0].load_balancer[0].ingress[0].ip
+  value = data.kubernetes_service.ingress_nginx.status[0].load_balancer[0].ingress[0].ip
   description = "Public IP of the NGINX Ingress Controller"
 } 
