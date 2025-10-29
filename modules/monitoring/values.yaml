@@ -7,7 +7,7 @@ prometheus:
   ingress:
     enabled: true
     annotations:
-      kubernetes.io/ingress.class: nginx-ingress
+      kubernetes.io/ingress.class: ingress-nginx
     hosts:
       - prometheus.${ip}.nip.io
     paths:
@@ -22,7 +22,7 @@ grafana:
   ingress:
     enabled: true
     annotations:
-      kubernetes.io/ingress.class: nginx-ingress
+      kubernetes.io/ingress.class: ingress-nginx
     hosts:
       - grafana.${ip}.nip.io
     paths:
