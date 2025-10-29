@@ -32,6 +32,7 @@ module "aks_with_node_group" {
 module "ingress" {
   # invoke aks module under modules directory
   source = "../modules/ingress"
+  depends_on = [module.aks_with_node_group]
 
   host = module.aks_with_node_group.host
   client_certificate=module.aks_with_node_group.client_certificate
