@@ -1,26 +1,22 @@
+resource "helm_release" "nginx_ingress" {
+  name       = "nginx-ingress"
+  repository = "https://kubernetes.github.io/ingress-nginx"
+  chart      = "ingress-nginx"
+  namespace  = "ingress-nginx"
+  version    = "1.7.1" # Use a stable, recent version
+  create_namespace = true
 
-# Apply the ingress-nginx manifest using kubectl
-resource "null_resource" "apply_ingress_nginx" {
-  provisioner "local-exec" {
-    command = "az aks get-credentials --resource-group myTFResourceGroup --name minh-test-aks --overwrite-existing"
-  }
-  provisioner "local-exec" {
-    command = "kubectl apply -f https://raw.githubusercontent.com/kubernetes/ingress-nginx/controller-v1.7.1/deploy/static/provider/cloud/deploy.yaml"
-  }
+
+  values = [
+    file("${path.module}/values.yaml")
+  ]
 }
 
-# Wait for the service to be created
-data "kubernetes_service" "ingress_nginx" {
-  depends_on = [null_resource.apply_ingress_nginx]
-
+data "kubernetes_service" "nginx_ingress" {
   metadata {
     name      = "ingress-nginx-controller"
     namespace = "ingress-nginx"
   }
-}
 
-# # Output the external IP
-# output "ingress_nginx_ip" {
-#   value = data.kubernetes_service.ingress_nginx.status[0].load_balancer[0].ingress[0].ip
-#   description = "External IP of the NGINX Ingress Controller"
-# }
+  depends_on = [helm_release.nginx_ingress]
+}
