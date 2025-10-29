@@ -24,7 +24,7 @@ resource "null_resource" "wait_for_ingress_ip" {
       echo "Waiting for Ingress IP..."
       sleep 10
     done
-    echo "Failed to get Ingress IP after waiting."
+    echo "Failed to get Ingress IP after waitinggggg."
     exit 1
     EOT
     interpreter = ["/bin/bash", "-c"]
