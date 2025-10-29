@@ -9,7 +9,7 @@ prometheus:
     annotations:
       kubernetes.io/ingress.class: nginx
     hosts:
-      - prometheus.${ip}.nip.io
+      - prometheus.68.219.137.215.nip.io
     paths:
       - /
     pathType: Prefix
@@ -24,7 +24,7 @@ grafana:
     annotations:
       kubernetes.io/ingress.class: nginx
     hosts:
-      - grafana.${ip}.nip.io
+      - grafana.68.219.137.215.nip.io
     paths:
       - /
     pathType: Prefix
