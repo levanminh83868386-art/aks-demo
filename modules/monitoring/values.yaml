@@ -17,7 +17,11 @@ prometheus:
 
 grafana:
   adminUser: admin
-  adminPassword: admin
+  adminPassword: admin 
+  grafana.ini:
+    server:
+      root_url: "%(protocol)s://%(domain)s/grafana/"
+
   
   # ingress:
   #   enabled: true
