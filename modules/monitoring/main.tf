@@ -1,4 +1,4 @@
-# monitoring.tf - Deploy the Helm chart
+# main.tf
 resource "helm_release" "kube_prometheus_stack" {
   # Helm repository details
   name       = "kube-prometheus-stack"

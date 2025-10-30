@@ -1,19 +1,10 @@
+# values.yaml
 prometheus:
   prometheusSpec:
     podMonitorSelectorNilUsesHelmValues: false
     serviceMonitorSelectorNilUsesHelmValues: false
     ruleSelectorNilUsesHelmValues: false
   
-  # ingress:
-  #   enabled: true
-  #   annotations:
-  #     kubernetes.io/ingress.class: nginx
-  #   hosts:
-  #     - prometheus.40.127.223.26.nip.io
-  #   paths:
-  #     - /
-  #   pathType: Prefix
-
 
 grafana:
   adminUser: admin
@@ -21,14 +12,3 @@ grafana:
   grafana.ini:
     server:
       root_url: "%(protocol)s://%(domain)s/grafana/"
-
-  
-  # ingress:
-  #   enabled: true
-  #   annotations:
-  #     kubernetes.io/ingress.class: nginx
-  #   hosts:
-  #     - grafana.40.127.223.26.nip.io
-  #   paths:
-  #     - /
-  #   pathType: Prefix
